@@ -25,27 +25,31 @@
             box-sizing: border-box; /* 確保內邊距不撐開寬度 */
         }
         .輸入區域 {
-            display: flex;
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        .文字欄 {
-            flex-grow: 1;
-            border: none;
-            background-color: #F0F4F8;
-            padding: 12px 15px;
-            outline: none;
-            font-size: 16px; /* 防止 iOS 輸入時自動放大 */
-        }
-        .按鈕 {
-            background-color: #8d9a53;
-            border: none;
-            color: white;
-            padding: 0 20px;
-            cursor: pointer;
-            font-size: 20px;
-        }
+  display: flex;
+  justify-content: center; /* 讓內容置中 */
+  gap: 5px; /* 輸入框與按鈕之間的固定間距 */
+}
+
+.文字欄 {
+  width: 200px; /* 設定固定寬度，就不會隨手機螢幕變動 */
+  flex-grow: 0; /* 禁止它自動填滿剩餘空間 */
+  border: none;
+  background-color: #F0F4F8;
+  padding: 12px 15px;
+  outline: none;
+  border-radius: 25px 0 0 25px; /* 左側圓角 */
+  font-size: 16px;
+}
+
+.按鈕 {
+  background-color: #8d9a53;
+  border: none;
+  color: white;
+  padding: 0 20px;
+  cursor: pointer;
+  border-radius: 0 25px 25px 0; /* 右側圓角 */
+  font-size: 20px;
+}
         .清單 {
             list-style-type: none;
             padding: 0;
