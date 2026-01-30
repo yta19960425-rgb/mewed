@@ -1,0 +1,335 @@
+/* 旅行中 */
+
+.site-header {
+    text-align: center;
+    padding: 20px 0;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.home-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #000;
+    text-decoration: none;
+    padding: 10px 40px;
+    display: inline-block;
+}
+
+
+/* ★ 全寬 + 高度半個螢幕 ★ */
+.slideshow-container {
+  width: 100%;
+  height: 70vh;       /* ← 佔螢幕的一半高度 */
+  position: relative;
+  overflow: hidden;   /* 隱藏上下裁切 */
+  background: #000;
+}
+
+/* 每張幻燈片 */
+.mySlides1 {
+  display: none;
+  height: 100%;
+}
+
+/* ★ 圖片設定：全寬、半高、上下裁切、置中 ★ */
+.mySlides1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* ← 等比例放大裁切 */
+  object-position: center;   /* ← 顯示中間部位 */
+  display: block;
+}
+
+/* 左右按鈕 */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  user-select: none;
+  background-color: rgba(0,0,0,0.4);
+  transform: translateY(-50%);
+  
+}
+
+.next { right: 0; }
+.prev { left: 0; }
+
+.prev:hover, .next:hover {
+  background-color: rgba(255,255,255,0.8);
+  color: black;
+}
+
+
+div.scrollmenu {
+  background-color: #fbf9f9;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.scrollmenu a {
+  display: inline-block;
+  color: rgb(9, 6, 6);
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  background-color: #777;
+}
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 整個 navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: #a78a6e;
+  height: 60px;
+  padding: 0 12px;
+    white-space: nowrap;     /* 避免文字換行 */
+
+}
+
+/* 左邊標題 */
+.nav-logo {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+/* 中間整組置中 */
+.nav-center {
+  display: flex;
+  margin: 0 auto;       
+}
+
+/* 每個選單項目 */
+.nav-btn {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 16px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+    white-space: nowrap;     /* 避免文字換行 */
+
+}
+
+/* hover 效果 */
+.nav-btn:hover,
+.nav-logo:hover {
+  background-color: rgb(106, 170, 167);
+}
+
+/* dropdown 基本（之後可加下拉） */
+.dropdown {
+  position: relative;
+}
+
+
+/* 最新發布淡色區塊 */
+.latest-section {
+  background-color: #f5ede0;  
+  padding: 40px 20px;
+  margin: 40px 0;
+}
+
+/* 標題 */
+.latest-section h2 {
+  margin: 0 0 6px;
+  font-size: 1.6rem;
+}
+
+/* 副標題 */
+.section-subtitle {
+  margin: 0 0 30px;
+  color: #777;
+  font-size: 0.95rem;
+}
+
+.card-section {
+  padding: 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 12px;
+}
+
+.card p {
+  margin: 0 12px 16px;
+  font-size: 0.9rem;
+}
+
+/* 基本設定 */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+               sans-serif;
+  line-height: 1.6;
+  margin: 20px;
+}
+
+/* 文章外框 */
+.text-wrap {
+  border: 3px solid green;
+  padding: 20px;
+  overflow: hidden; /* 關鍵：讓圖片一定在框內 */
+}
+
+/* 只影響這個區塊內的圖片 */
+.text-wrap img {
+  float: left;
+  display: block;
+
+  width: 300px;
+  height: 300px;
+
+  clip-path: circle(40%);
+  shape-outside: circle(45%);
+
+  margin: 0 20px 12px 0;
+}
+
+
+
+.more-icon {
+  font-size: 20px;
+  text-decoration: none;
+  color: #666;
+}
+
+.more-icon:hover {
+  transform: translateX(4px);
+  transition: 0.2s;
+}
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto 20px;
+}
+
+
+/* 聯繫我 */
+/* 下方聯繫我按鈕 */
+.contact-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  background-color: #6b7c59;
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* 背景遮罩 */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 999;
+}
+
+/* 視窗本體 */
+.modal-content {
+  background: white;
+  width: 90%;
+  max-width: 400px;
+  margin: 10% auto;
+  padding: 25px;
+  border-radius: 12px;
+  position: relative;
+}
+
+/* 關閉按鈕 */
+.close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* 表單 */
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+.modal-content button {
+  width: 100%;
+  padding: 10px;
+  background: #6b7c59;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
