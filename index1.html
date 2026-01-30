@@ -1,66 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>每日微挑戰</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         body {
-  background-color: #67b099;
-  display: flex;
-  justify-content: center;  
-}
-.操作面板 {
-  background-color: white;
-  width:300px;
-  padding: 30px;
-  margin-top: 50px;
-  border-radius: 20px;
-  box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
-}
-.輸入區域 {
-  display: flex;
-  border-radius: 25px;
-  overflow: hidden;
-}
-.文字欄 {
-  flex-grow:1;
-  border: none;
-  background-color: #F0F4F8;
-  padding: 10px 15px;
-  outline:none;
-}
-.按鈕 {
-  background-color: #8d9a53;
-  border: none;
-  color: rgb(255, 255, 255);
-  padding: 10px 15px;
-  cursor:pointer;
-}
-.清單 {
-  list-style-type: none;
-  padding: 0;
-}
-.清單 li {
-  display: flex;
-  padding: 10px 0;
-  border-bottom: 1px solid #eee; 
-
-}
-.清單 label {
-  flex-grow:1;
-}
-.打勾方塊 {
-  margin-right: 15px;
-}
-.垃圾桶 {
-  background: none;
-  border: none;
-  cursor: pointer;
-  opacity: 0.5;
-}
-.垃圾桶:hover {
-  opacity: 1;
-}
+            background-color: #67b099;
+            display: flex;
+            justify-content: center;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .操作面板 {
+            background-color: white;
+            /* 讓它在手機上寬度 100%，但在大螢幕上最高 400px */
+            width: 100%;
+            max-width: 400px; 
+            padding: 25px;
+            margin-top: 20px;
+            border-radius: 20px;
+            box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
+            box-sizing: border-box; /* 確保內邊距不撐開寬度 */
+        }
+        .輸入區域 {
+            display: flex;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .文字欄 {
+            flex-grow: 1;
+            border: none;
+            background-color: #F0F4F8;
+            padding: 12px 15px;
+            outline: none;
+            font-size: 16px; /* 防止 iOS 輸入時自動放大 */
+        }
+        .按鈕 {
+            background-color: #8d9a53;
+            border: none;
+            color: white;
+            padding: 0 20px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        .清單 {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        .清單 li {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee; 
+        }
+        .清單 label {
+            flex-grow: 1;
+            word-break: break-all; /* 防止長文字撐破版面 */
+        }
+        .打勾方塊 {
+            margin-right: 15px;
+            width: 18px;
+            height: 18px;
+        }
+        .垃圾桶 {
+            background: none;
+            border: none;
+            cursor: pointer;
+            opacity: 0.5;
+            font-size: 18px;
+        }
+        .垃圾桶:hover {
+            opacity: 1;
+        }
+        /* 已完成項目的樣式 */
+        .completed label {
+            text-decoration: line-through;
+            color: #999;
+        }
     </style>
 </head>
 <body>
@@ -69,57 +89,94 @@
             <input placeholder="新增項目" class="文字欄">
             <button class="按鈕">+</button>
         </div>
-        <ul class="清單">
-        </ul>
+        <ul class="清單"></ul>
     </div>
+
     <script>
-
         const 文字欄 = document.querySelector(".文字欄");
-const 清單 = document.querySelector(".清單");
-const 按鈕 = document.querySelector(".按鈕");
+        const 清單 = document.querySelector(".清單");
+        const 按鈕 = document.querySelector(".按鈕");
 
-function 新任務() {
-    if (文字欄.value === "") {
-        return;
-    }
-    const 任務 = document.createElement("li");
-    任務.innerHTML = `
-        <input type="checkbox" class="打勾方塊">
-        <label>${文字欄.value}</label>
-        <button class="垃圾桶">🗑️</button>
-    `
+        // 1. 初始化：從 LocalStorage 讀取資料
+        document.addEventListener("DOMContentLoaded", 讀取儲存);
 
-    const 垃圾桶 = 任務.querySelector(".垃圾桶");
-    const 打勾方塊 = 任務.querySelector(".打勾方塊");
+        function 新任務(內容, 已完成 = false) {
+            if (內容 === "") return;
 
-    垃圾桶.addEventListener("click", function() {
-        任務.remove();
-    });
+            const 任務 = document.createElement("li");
+            if (已完成) 任務.classList.add("completed");
 
-    打勾方塊.addEventListener("change", function() {
-        if (打勾方塊.checked){
-            任務.style.textDecoration = "line-through";
-            任務.style.color = "#999";
-            清單.append(任務);
-        } else {
-            任務.style.textDecoration = "none";
-            任務.style.color = "";
-            清單.prepend(任務);
+            任務.innerHTML = `
+                <input type="checkbox" class="打勾方塊" ${已完成 ? 'checked' : ''}>
+                <label>${內容}</label>
+                <button class="垃圾桶">🗑️</button>
+            `;
+
+            const 垃圾桶 = 任務.querySelector(".垃圾桶");
+            const 打勾方塊 = 任務.querySelector(".打勾方塊");
+
+            // 刪除事件
+            垃圾桶.addEventListener("click", function() {
+                任務.remove();
+                儲存資料();
+            });
+
+            // 狀態切換事件
+            打勾方塊.addEventListener("change", function() {
+                if (打勾方塊.checked) {
+                    任務.classList.add("completed");
+                    清單.append(任務); // 移到最後
+                } else {
+                    任務.classList.remove("completed");
+                    清單.prepend(任務); // 移到最前
+                }
+                儲存資料();
+            });
+
+            if (已完成) {
+                清單.append(任務);
+            } else {
+                清單.prepend(任務);
+            }
+            
+            儲存資料();
         }
-    });
 
-    清單.append(任務);
-    文字欄.value = "";
-}
+        // 點擊按鈕新增
+        按鈕.addEventListener("click", () => {
+            新任務(文字欄.value);
+            文字欄.value = "";
+        });
 
-按鈕.addEventListener("click", 新任務);
+        // 按下 Enter 新增
+        文字欄.addEventListener("keyup", (e) => {
+            if (e.key === "Enter") {
+                新任務(文字欄.value);
+                文字欄.value = "";
+            }
+        });
 
-文字欄.addEventListener("keyup", function(e) {
-    if (e.key === "Enter") {
-        新任務();
-    }
-});
+        // 2. 儲存函式：將目前的清單轉為 JSON 存入瀏覽器
+        function 儲存資料() {
+            const 所有任務 = [];
+            document.querySelectorAll(".清單 li").forEach(li => {
+                所有任務.push({
+                    text: li.querySelector("label").innerText,
+                    done: li.querySelector(".打勾方塊").checked
+                });
+            });
+            localStorage.setItem("myTasks", JSON.stringify(所有任務));
+        }
 
+        // 3. 讀取函式：從瀏覽器拿出資料並顯示
+        function 讀取儲存() {
+            const 舊資料 = JSON.parse(localStorage.getItem("myTasks") || "[]");
+            // 清除現有列表（避免重複）
+            清單.innerHTML = "";
+            舊資料.forEach(item => {
+                新任務(item.text, item.done);
+            });
+        }
     </script>
 </body>
 </html>
