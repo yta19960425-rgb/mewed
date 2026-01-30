@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image</title>
+<link rel="stylesheet" href="../21.css">
+<link rel="stylesheet" href="../pic.css">
+
+</head>
+<body>
+
+<header class="site-header">
+  <a href="home.html" class="home-title">旅行中</a>
+</header>
+
+<div class="navbar">
+  <div class="nav-center">
+    <a href="home.html" class="nav-btn">一場北半球的遠行</a>
+    <div class="dropdown"><a href="about.html" class="nav-btn">我與遠行 <i class="fa fa-caret-down"></i></a></div>
+    <div class="dropdown"><a href="story.html" class="nav-btn">旅行小故事 <i class="fa fa-caret-down"></i></a></div>
+    <div class="dropdown"><a href="pic.html" class="nav-btn">照片展 <i class="fa fa-caret-down"></i></a></div>
+    <div class="dropdown"><a href="store.html" class="nav-btn">選物店 <i class="fa fa-caret-down"></i></a></div>
+  </div>
+</div>
+
+<!-- Header -->
+<div class="header" id="myHeader">
+  <h1>Image Grid</h1>
+  <p>Click on the buttons to change the view.</p>
+  <button class="btn active" onclick="showGroup('mountain', this, 3)">綠與山</button>
+  <button class="btn" onclick="showGroup('city', this, 4)">國與城</button>
+  <button class="btn" onclick="showGroup('sea', this, 3)">藍與海</button>
+</div>
+
+<!-- Photo Grid -->
+ <div class="gallery-wrapper">
+<div class="row">
+  <div class="column mountain">
+    <img src="../img-p.pic/m1.jpeg">
+    <img src="../img-p.pic/m6.jpeg">
+    <img src="../img-p.pic/m2.jpeg">
+    <img src="../img-p.pic/m24.jpeg">
+    <img src="../img-p.pic/m23.jpeg">
+    <img src="../img-p.pic/m14.jpeg">
+  </div>
+  <div class="column mountain">
+    <img src="../img-p.pic/m3.jpeg">
+    <img src="../img-p.pic/m5.jpeg">
+    <img src="../img-p.pic/m22.jpeg">
+    <img src="../img-p.pic/m21.jpeg">
+    <img src="../img-p.pic/m18.jpeg">
+    <img src="../img-p.pic/m17.jpeg">
+  </div>
+  <div class="column mountain">
+    <img src="../img-p.pic/m8.jpeg">
+    <img src="../img-p.pic/m7.jpeg">
+    <img src="../img-p.pic/m20.jpeg">
+    <img src="../img-p.pic/m19.jpeg">
+    <img src="../img-p.pic/m10.jpeg">
+    <img src="../img-p.pic/m9.jpeg">
+  </div>
+  
+  
+</div>
+
+<div class="row">
+  <div class="column city">
+    <img src="../img-p.pic/c1.jpeg">
+    <img src="../img-p.pic/c6.jpeg">
+    <img src="../img-p.pic/c11.jpeg">
+    <img src="../img-p.pic/c23.jpeg">
+    <img src="../img-p.pic/c24.jpeg">
+    <img src="../img-p.pic/c31.jpeg">
+  </div>
+  <div class="column city">
+    <img src="../img-p.pic/c15.jpeg">
+    <img src="../img-p.pic/c4.jpeg">
+    <img src="../img-p.pic/c29.jpeg">
+    <img src="../img-p.pic/c13.jpeg">
+    <img src="../img-p.pic/c9.jpeg">
+    <img src="../img-p.pic/c12.jpeg">
+    <img src="../img-p.pic/c22.jpeg">
+  </div>
+  <div class="column city">
+    <img src="../img-p.pic/c35.jpeg">
+    <img src="../img-p.pic/c26.jpeg">
+    <img src="../img-p.pic/c25.jpeg">
+    <img src="../img-p.pic/c16.jpeg">
+    <img src="../img-p.pic/c28.jpeg">
+    <img src="../img-p.pic/c36.jpeg">
+    <img src="../img-p.pic/c14.jpeg">
+    
+  </div>
+  <div class="column city">
+    <img src="../img-p.pic/c20.jpeg">
+    <img src="../img-p.pic/c19.jpeg">
+    <img src="../img-p.pic/c21.jpeg">
+    <img src="../img-p.pic/c32.jpeg">
+    <img src="../img-p.pic/c33.jpeg">
+    <img src="../img-p.pic/c30.jpeg">
+    <img src="../img-p.pic/c27.jpeg">
+  </div>
+</div>
+
+<div class="row">
+  <div class="column sea">
+    <img src="../img-p.pic/s4.jpeg">
+    <img src="../img-p.pic/s14.jpeg">
+    <img src="../img-p.pic/s6.jpeg">
+    <img src="../img-p.pic/s25.jpeg">
+    <img src="../img-p.pic/s19.jpeg">
+    <img src="../img-p.pic/s24.jpeg">
+  </div>
+  
+  <div class="column sea">
+    <img src="../img-p.pic/s1.jpeg">
+    <img src="../img-p.pic/s13.jpeg">
+    <img src="../img-p.pic/s20.jpeg">
+    <img src="../img-p.pic/s23.jpeg">
+    <img src="../img-p.pic/s7.jpeg">
+    <img src="../img-p.pic/s21.jpeg">
+  </div>
+  <div class="column sea">
+    <img src="../img-p.pic/s22.jpeg">
+    <img src="../img-p.pic/s18.jpeg">
+    <img src="../img-p.pic/s8.jpeg">
+    <img src="../img-p.pic/s3.jpeg">
+    <img src="../img-p.pic/s12.jpeg">
+    <img src="../img-p.pic/s11.jpeg">
+  </div>
+  
+  
+  
+  </div>
+</div>
+
+<!-- 聯繫我按鈕 -->
+<button class="contact-btn" onclick="openModal()">聯繫我</button>
+
+<!-- 彈跳視窗 -->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+
+    <h2>聯繫我</h2>
+
+    <form>
+      <input type="text" placeholder="你的名字">
+      <input type="email" placeholder="Email">
+      <textarea placeholder="想說的話"></textarea>
+      <button type="submit">送出</button>
+    </form>
+  </div>
+</div>
+
+<script src="../21.js"></script>
+
+<script>
+    function showGroup(groupClass, btnElement, columns) {
+  document.querySelectorAll('.column').forEach(col => col.style.display = 'none');
+  var flexWidth = (100 / columns) + '%';
+  document.querySelectorAll('.' + groupClass).forEach(col => {
+    col.style.display = 'block';
+    col.style.flex = flexWidth;
+  });
+
+  // active 按鈕
+  var btns = document.getElementById('myHeader').getElementsByClassName('btn');
+  for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
+  btnElement.classList.add('active');
+}
+
+
+// 預設顯示綠山
+window.onload = function() {
+  showGroup('mountain', document.querySelector('.btn.active'), 3);
+};
+</script>
+
+
+</body>
+</html>

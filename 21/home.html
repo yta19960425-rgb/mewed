@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="../21.css">
+
+
+</head>
+
+<body>
+  <header class="site-header">
+  <a href="home.html" class="home-title">旅行中</a>
+</header>
+
+
+<div class="navbar">
+<div class="nav-center">
+    <a href="home.html" class="nav-btn">
+      一場北半球的遠行
+    </a>
+
+    
+      <div class="dropdown">
+        <a href="about.html" class="nav-btn">
+          我與遠行 <i class="fa fa-caret-down"></i>
+        </a>
+      </div>
+
+      <div class="dropdown">
+        <a href="story.html" class="nav-btn">
+          旅行小故事 <i class="fa fa-caret-down"></i>
+        </a>
+      </div>
+
+      <div class="dropdown">
+        <a href="pic.html" class="nav-btn">
+          照片展 <i class="fa fa-caret-down"></i>
+        </a>
+      </div>
+
+      <div class="dropdown">
+        <a href="store.html" class="nav-btn">
+          選物店 <i class="fa fa-caret-down"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+<div class="slideshow-container">
+
+  <div class="mySlides1">
+    <img src="../img/h1.jpeg">
+  </div>
+
+  <div class="mySlides1">
+    <img src="../img/h2.jpg">
+  </div>
+
+  <div class="mySlides1">
+    <img src="../img/h3.jpg">
+  </div>
+
+  <div class="mySlides1">
+    <img src="../img/h4.jpg">
+</div>
+
+  <div class="mySlides1">
+    <img src="../img/h5.jpg">
+</div>
+
+
+
+  </div>
+
+  <!-- 左右按鈕 -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+
+<br><br>
+
+<h2>關於</h2>
+<div class="text-wrap">
+  <img src="../img/h3.jpg" width="300" height="300">
+  <br><br>
+  <br>
+  <p>人生就像一場精彩絕倫的旅程，我們都是在探索未知世界的旅人，帶著好奇心與夢想，從熟悉的地方出發，去感受山川湖海的壯闊，體驗不同城市的脈動，與形形色色的人相遇，讓每一次的迷路與發現，都成為生命中無價的篇章，最終在歸途裡，帶著滿載而歸的記憶與對世界更深的理解，重新定義“家”與“遠方”。 </p>
+  
+
+</div>
+
+<br><br>
+
+<div class="section-title">
+  <h3>一場北半球的遠行</h3>
+<a href="about.html" class="more-icon">→more</a>
+</div>
+
+
+<div class="cards-container">
+
+  <div class="card">
+    <img src="../img/01.jpg" alt="城市名稱">
+    <h3>香港</h3>
+    <p>叮叮</p>
+  </div>
+
+  <div class="card">
+    <img src="../img/02.jpeg" >
+    <h3>重慶</h3>
+    <p>洪崖洞</p>
+  </div>
+  <div class="card">
+    <img src="../img/03.jpeg" >
+    <h3>卡達</h3>
+    <p>博物館</p>
+  </div>
+  <div class="card">
+    <img src="../img/04.jpeg" >
+    <h3>土耳其</h3>
+    <p>卡帕多奇亞熱氣球</p>
+  </div>
+  <div class="card">
+    <img src="../img/05.jpeg" >
+    <h3>希臘</h3>
+    <p>邁泰奧拉修道院</p>
+  </div>
+ 
+  
+
+
+</div>
+ <br><br>
+
+ <div class="section-title">
+  <h3>小商店-明信片組</h3>
+  <a href="store.html" class="more-icon">→more</a>
+ </div>
+
+<div class="cards-container">
+
+  <div class="card">
+    <img src="../img-p.pic/m24.jpeg" >
+    <h3>山</h3>
+    <p></p>
+  </div>
+  <div class="card">
+    <img src="../img-p.pic/s17.jpeg" >
+    <h3>海</h3>
+    <p></p>
+  </div>
+  <div class="card">
+    <img src="../img-p.pic/c21.jpeg" >
+    <h3>城</h3>
+    <p></p>
+  </div>
+  <div class="card">
+    <img src="../img/first.jpeg" >
+    <h3>來自未來的問候</h3>
+    <p>預購</p>
+
+  </div>
+
+  <!-- 聯繫我按鈕 -->
+<button class="contact-btn" onclick="openModal()">聯繫我</button>
+
+<!-- 彈跳視窗 -->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+
+    <h2>聯繫我</h2>
+
+    <form>
+      <input type="text" placeholder="你的名字">
+      <input type="email" placeholder="Email">
+      <textarea placeholder="想說的話"></textarea>
+      <button type="submit">送出</button>
+    </form>
+  </div>
+</div>
+
+<script src="../21.js"></script>
+
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function showSlides(n) {
+  let slides = document.getElementsByClassName("mySlides1");
+
+  if (n > slides.length) slideIndex = 1;
+  if (n < 1) slideIndex = slides.length;
+
+  for (let i = 0; i < slides.length; i++)
+    slides[i].style.display = "none";
+
+  slides[slideIndex - 1].style.display = "block";
+}
+
+
+</script>
+
+</body>
+</html>
+
+
+

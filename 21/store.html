@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>選物店</title>
+    <link rel="stylesheet" href="../21.css">
+    <link rel="stylesheet" href="../story.css">
+    <link rel="stylesheet" href="../store.css">
+
+</head>
+<body>
+<header class="site-header">
+  <a href="home.html" class="home-title">旅行中</a>
+</header>
+
+
+<div class="navbar">
+<div class="nav-center">
+    <a href="home.html" class="nav-btn">
+      一場北半球的遠行
+    </a>
+
+    
+      <div class="dropdown">
+        <a href="about.html" class="nav-btn">
+          我與遠行 <i class="fa fa-caret-down"></i>
+        </a>
+      </div>
+
+      <div class="dropdown">
+        <a href="story.html" class="nav-btn">
+          旅行小故事 <i class="fa fa-caret-down"></i>
+        </a>
+      </div>
+
+      <div class="dropdown">
+        <a href="pic.html" class="nav-btn">
+          照片展 <i class="fa fa-caret-down"></i>
+        </a>
+      </div>
+
+      <div class="dropdown">
+        <a href="store.html" class="nav-btn">
+          選物店 <i class="fa fa-caret-down"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+<section class="random-photo-section">
+  <button id="randomBtn">抽取照片</button>
+  <div class="photo-container" id="photoContainer">
+    <!-- 隨機照片會顯示在這裡 -->
+  </div>
+</section>
+
+<section class="latest-section">
+ <h3>明信片組-國與城</h3>
+  <h5>每組$199</h5>
+  <p class="section-subtitle">
+    
+  </p>
+<div class="flip-container">
+<div class="flip-box">
+  <div class="flip-box-inner">
+    <div class="flip-box-front">
+      <img src="../img-store/111.jpg">
+
+
+    </div>
+    <div class="flip-box-back">
+      <p>在教堂裡，享受片刻的寧靜。</p>
+      <p>每組5張，含上面3張加上隨機款2張</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="flip-box">
+  <div class="flip-box-inner">
+    <div class="flip-box-front">
+      <img src="../img-store/114.jpg" >
+
+    </div>
+    <div class="flip-box-back">
+      <p>在城市裡，遇見浪漫</p>
+      <p>每組5張，含上面3張加上隨機款2張</p>
+    </div>
+  </div>
+</div>
+</div>
+
+  <h3>明信片組-山與海</h3>
+  <h5>每組$199</h5>
+  <p class="section-subtitle">
+    
+  </p>
+<div class="flip-container">
+<div class="flip-box">
+  <div class="flip-box-inner">
+    <div class="flip-box-front">
+      <img src="../img-store/112.jpg" >
+
+
+    </div>
+    <div class="flip-box-back">
+      <p>如果你現在不知道往哪裡走，先看看海</p>
+      <p>每組5張，含上面3張加上隨機款2張</p>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="flip-box">
+  <div class="flip-box-inner">
+    <div class="flip-box-front">
+      <img src="../img-store/113.jpg" >
+
+
+    </div>
+    <div class="flip-box-back">
+      <p>山不會說話，但它懂得承接。</p>
+      <p>每組5張，含上面3張加上隨機款2張</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<br><br>
+
+<h3>購物相關問與答</h3>
+<div class="faq">
+  <input type="checkbox" id="q1">
+  <label for="q1" class="question">如何購買 </label>
+  <div class="answer">
+    <p>購買方式</p>
+    <p>1:選擇喜歡的明信片組</p>
+    <p>2:加入Line:@12345</p>
+    <p>3:傳訊息告知想購買的項目</p>
+    <p>4:會提供付款方式</p>
+    <p>5:付款後告知帳號，完成即會開始準備出貨</p>
+  </div>
+</div>
+
+<div class="faq">
+  <input type="checkbox" id="q2">
+  <label for="q2" class="question">寄送相關</label>
+  <div class="answer">
+    <p>寄送時間：付款完成之後3-7天出貨</p>
+    <p>寄送方式：採取便利商店取貨</p>
+</div>
+</div>
+
+<div class="faq">
+  <input type="checkbox" id="q3">
+  <label for="q3" class="question">為什麼會有隨機款</label>
+  <div class="answer">
+    <p>因為想讓每個人收到的時候有驚喜的感覺</p>
+    <p>如果有想要的款式也可以在訂購時留言告知</p>
+    
+</div>
+</div>
+
+</section>
+
+    
+<!-- 聯繫我按鈕 -->
+<button class="contact-btn" onclick="openModal()">聯繫我</button>
+
+<!-- 彈跳視窗 -->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+
+    <h2>聯繫我</h2>
+
+    <form>
+      <input type="text" placeholder="你的名字">
+      <input type="email" placeholder="Email">
+      <textarea placeholder="想說的話"></textarea>
+      <button type="submit">送出</button>
+    </form>
+  </div>
+</div>
+
+<script src="../21.js"></script>
+<script>
+   let photoNames = ['m1', 'm2', 'c2', 'c1','m8', 'm9', 'c8', 'c9', 'm18', 's17','s8', 's9', 's10', 's12'];
+const photos = photoNames.map(name => `../img-p.pic/${name}.jpeg`);
+
+
+const btn = document.getElementById('randomBtn');
+const container = document.getElementById('photoContainer');
+
+let lastPhoto = null; // 記錄上一張照片
+
+btn.addEventListener('click', () => {
+  let randomIndex;
+  let photo;
+
+  do {
+    randomIndex = Math.floor(Math.random() * photos.length);
+    photo = photos[randomIndex];
+  } while(photo === lastPhoto && photos.length > 1); 
+  // 如果照片只有一張，不會死循環
+
+  lastPhoto = photo; // 更新上一張照片
+
+  const img = document.createElement('img');
+  img.src = photo;
+
+  container.innerHTML = '';
+  container.appendChild(img);
+});
+</script>
+</body>
+</html>
+
